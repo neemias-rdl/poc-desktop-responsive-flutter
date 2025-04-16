@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:poc_responsive_desktop/presentation/pages/home_dashboard/home_dashboard_page.dart';
 
 class HomeDashboardMedium extends StatelessWidget {
-  const HomeDashboardMedium({super.key});
+  final HomeDashboardParams params;
+
+  const HomeDashboardMedium({super.key, required this.params});
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +15,10 @@ class HomeDashboardMedium extends StatelessWidget {
           'This is the medium version of the Home Dashboard',
           style: TextStyle(overflow: TextOverflow.fade),
         ),
+      ),
+      drawer: Drawer(
+        backgroundColor: Colors.blueGrey,
+        child: ListView(children: params.tabBarActions ?? []),
       ),
     );
   }

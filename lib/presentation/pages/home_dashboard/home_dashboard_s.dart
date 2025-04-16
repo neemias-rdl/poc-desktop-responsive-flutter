@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:poc_responsive_desktop/presentation/pages/home_dashboard/home_dashboard_page.dart';
 
 class HomeDashboardSmall extends StatelessWidget {
-  const HomeDashboardSmall({super.key});
+  final HomeDashboardParams params;
+
+  const HomeDashboardSmall({super.key, required this.params});
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +15,11 @@ class HomeDashboardSmall extends StatelessWidget {
           'This is the small version of the Home Dashboard',
           style: TextStyle(overflow: TextOverflow.fade),
         ),
+      ),
+      drawer: Drawer(
+        backgroundColor: Colors.blueGrey,
+
+        child: ListView(children: params.tabBarActions ?? []),
       ),
     );
   }
